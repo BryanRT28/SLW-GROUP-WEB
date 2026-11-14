@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SL Worldwide S.A.C. — Agencia de Carga Internacional & Logística Global</title>
+    <meta name="description" content="Operador logístico internacional en Perú. Transporte marítimo FCL/LCL, carga aérea, agenciamiento de aduanas, seguro de carga y transporte terrestre.">
+    <link rel="icon" href="assets/img/favicon.png" type="image/png">
+
+    <!-- Tipografía moderna: Inter + Space Grotesk + JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['"Space Grotesk"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        slw: {
+                            950: '#040D16',
+                            900: '#0A2135',
+                            800: '#10314F',
+                            blue: '#008FD5',
+                            sky: '#38BDF8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-nautical-grid {
+            background-image: radial-gradient(rgba(56, 189, 248, 0.14) 1px, transparent 1px);
+            background-size: 28px 28px;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up {
+            animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 bg-white antialiased selection:bg-slw-blue selection:text-white overflow-x-hidden">
+
+    <!-- TOP BAR FULL-WIDTH DE OPERACIONES -->
+    <div class="w-full bg-slw-950 text-slate-400 text-[11px] border-b border-white/10">
+        <div class="w-full px-6 sm:px-10 lg:px-16 h-9 flex items-center justify-between">
+            <div class="hidden md:flex items-center gap-3">
+                <span class="inline-flex items-center gap-1.5 text-emerald-400 font-mono">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                    OPERACIONES CALLAO / LIMA
+                </span>
+                <span class="text-slate-600">•</span>
+                <span>Calle Fray Martín de Murúa 150, Of. 606 - 607, San Miguel</span>
+            </div>
+
+            <div class="flex items-center justify-between w-full md:w-auto gap-6 font-mono">
+                <div class="flex items-center gap-5">
+                    <a href="https://wa.me/message/7V2SJ46XOHWQM1" target="_blank" class="hover:text-white transition">WA: 915 184 742</a>
+                    <a href="https://wa.me/51986940423" target="_blank" class="hover:text-white transition">986 940 423</a>
+                    <a href="mailto:ventas@slwsac.com" class="hidden sm:inline text-slw-sky hover:underline">ventas@slwsac.com</a>
+                </div>
+                <div class="flex items-center gap-3.5 border-l border-white/15 pl-5 text-slate-400">
+                    <a href="https://www.facebook.com/slworlwide" target="_blank" class="hover:text-white transition">FB</a>
+                    <a href="https://www.instagram.com/slw_sac/" target="_blank" class="hover:text-white transition">IG</a>
+                    <a href="https://www.linkedin.com/in/sl-worldwide-sac-44528717a/" target="_blank" class="hover:text-white transition">IN</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR FULL-WIDTH GLASSMORPHISM -->
+    <header class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-xl border-b border-slate-200/80">
+        <div class="w-full px-6 sm:px-10 lg:px-16">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logotipo -->
+                <a href="index.html" class="flex items-center gap-3 shrink-0 lg:ml-8">
+                    <img src="assets/img/logo-slwgroup.png" alt="SL Worldwide S.A.C." class="h-16 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+                    <div class="hidden flex items-center gap-2.5">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-slw-900 to-slw-blue text-white font-display font-bold flex items-center justify-center shadow-md">SLW</div>
+                        <div>
+                            <span class="block font-display font-bold text-slw-900 text-lg leading-none">SL WORLDWIDE</span>
+                            <span class="block font-mono text-[10px] text-slw-blue tracking-widest uppercase mt-0.5">Global Logistics</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Menú Desktop -->
+                <nav class="hidden lg:flex items-center gap-8 xl:gap-10 text-sm font-semibold text-slate-700">
+                    <a href="index.html" class="text-slw-blue font-bold">Inicio</a>
+                    <a href="nosotros.html" class="hover:text-slw-900 transition">Nosotros</a>
+                    
+                    <div class="relative group">
+                        <a href="servicios.html" class="flex items-center gap-1 hover:text-slw-900 transition py-3">
+                            <span>Servicios</span>
+                            <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-slw-blue transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </a>
+                        <div class="absolute left-0 top-full w-64 bg-white rounded-2xl shadow-2xl border border-slate-100 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <a href="servicios.html#carga-internacional" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-slw-blue">
+                                <span>Carga Internacional</span>
+                                <span class="font-mono text-[10px] text-slate-400">FCL/LCL</span>
+                            </a>
+                            <a href="servicios.html#agente-aduana" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-slw-blue">
+                                <span>Agente de Aduana</span>
+                                <span class="font-mono text-[10px] text-slate-400">SUNAT</span>
+                            </a>
+                            <a href="servicios.html#seguro-carga" class="block px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-slw-blue">Seguro de Carga</a>
+                            <a href="servicios.html#transporte-terrestre" class="block px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-slw-blue">Transporte Terrestre</a>
+                            <a href="servicios.html#deposito-temporal" class="block px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-slw-blue">Depósito Temporal</a>
+                        </div>
+                    </div>
+
+                    <a href="enlaces.html" class="hover:text-slw-900 transition">Enlaces de Interés</a>
+
+                    <div class="relative group">
+                        <button type="button" class="flex items-center gap-1 hover:text-slw-900 transition py-3">
+                            <span>Tarifas</span>
+                            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="absolute left-0 top-full w-60 bg-white rounded-2xl shadow-2xl border border-slate-100 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <a href="assets/docs/tarifas-carga.pdf" target="_blank" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-slw-blue">
+                                <span>Tarifas Carga Marítima</span>
+                                <span class="font-mono text-[10px] bg-sky-50 text-slw-blue px-2 py-0.5 rounded-md">PDF</span>
+                            </a>
+                            <a href="assets/docs/tarifas-aduaneras.pdf" target="_blank" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-slw-blue">
+                                <span>Tarifas Aduaneras</span>
+                                <span class="font-mono text-[10px] bg-sky-50 text-slw-blue px-2 py-0.5 rounded-md">PDF</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="relative group">
+                        <button type="button" class="flex items-center gap-2 text-slw-900 bg-slate-100 hover:bg-slate-200/70 px-4 py-2 rounded-full transition">
+                            <span class="w-2 h-2 rounded-full bg-slw-blue"></span>
+                            <span>Tracking Web</span>
+                        </button>
+                        <div class="absolute right-0 top-full mt-1 w-64 bg-white rounded-2xl shadow-2xl border border-slate-100 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <a href="https://trackingweb.andessystems.com.pe/e7vEMQn4LgYaZiA=/login" target="_blank" class="block px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-slw-blue">
+                                Tracking de Carga Internacional ↗
+                            </a>
+                            <a href="http://teleaduana.slwsac.com./teleaduana/" target="_blank" class="block px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-slw-blue">
+                                Tracking de Aduanas (Teleaduana) ↗
+                            </a>
+                            <div class="my-1 border-t border-slate-100"></div>
+                            <a href="https://naves.dpworldcallao.com.pe/programacion/" target="_blank" class="block px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slw-blue hover:bg-sky-50">
+                                Llegada de Naves — DP World ↗
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Acciones Derecha -->
+                <div class="flex items-center gap-3">
+                    <a href="contacto.html" class="hidden sm:inline-flex items-center gap-2 bg-slw-blue hover:bg-slw-900 text-white text-xs font-bold px-6 py-3.5 rounded-full shadow-lg shadow-slw-blue/25 transition-all duration-200">
+                        <span>Cotizar Embarque</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                    <button id="mobile-toggle" type="button" class="lg:hidden p-2.5 rounded-xl border border-slate-200 text-slw-900 hover:bg-slate-50" aria-label="Menú">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Drawer Móvil -->
+        <div id="mobile-drawer" class="hidden lg:hidden bg-white border-t border-slate-100 px-6 py-6 space-y-3 shadow-2xl">
+            <a href="index.html" class="block py-1.5 font-bold text-slw-blue">Inicio</a>
+            <a href="nosotros.html" class="block py-1.5 font-semibold text-slate-800">Nosotros</a>
+            <a href="servicios.html" class="block py-1.5 font-semibold text-slate-800">Servicios</a>
+            <a href="enlaces.html" class="block py-1.5 font-semibold text-slate-800">Enlaces de Interés</a>
+            <div class="pt-3 border-t border-slate-100 grid grid-cols-2 gap-2 text-xs">
+                <a href="assets/docs/tarifas-carga.pdf" target="_blank" class="p-2.5 rounded-xl bg-slate-50 font-semibold text-slate-700 text-center">Tarifas Carga PDF</a>
+                <a href="assets/docs/tarifas-aduaneras.pdf" target="_blank" class="p-2.5 rounded-xl bg-slate-50 font-semibold text-slate-700 text-center">Tarifas Aduana PDF</a>
+                <a href="https://trackingweb.andessystems.com.pe/e7vEMQn4LgYaZiA=/login" target="_blank" class="p-2.5 rounded-xl bg-sky-50 font-bold text-slw-blue text-center">Tracking Carga</a>
+                <a href="http://teleaduana.slwsac.com./teleaduana/" target="_blank" class="p-2.5 rounded-xl bg-sky-50 font-bold text-slw-blue text-center">Tracking Aduanas</a>
+            </div>
+            <a href="contacto.html" class="block text-center bg-slw-900 text-white font-bold py-3.5 rounded-xl mt-2">Solicitar Cotización</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION FULL-BLEED CON CARRUSEL DE IMÁGENES AUTOMÁTICO -->
+    <section class="relative w-full bg-slw-950 text-white overflow-hidden bg-nautical-grid">
+        <!-- Contenedor del Carrusel de Imágenes de Fondo (Usa imagen local si existe, sino la de internet) -->
+        <div id="hero-carousel" class="absolute inset-0 w-full h-full pointer-events-none">
+            <div class="hero-slide absolute inset-0 bg-cover bg-center opacity-100 transition-opacity duration-1000 ease-in-out" data-local="assets/img/hero-1.jpg" data-fallback="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1920&q=80"></div>
+            <div class="hero-slide absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-1000 ease-in-out" data-local="assets/img/hero-2.jpg" data-fallback="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=1920&q=80"></div>
+            <div class="hero-slide absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-1000 ease-in-out" data-local="assets/img/hero-3.jpg" data-fallback="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80"></div>
+        </div>
+        
+        <!-- Capa de oscurecimiento (Overlay) para mantener la legibilidad de los textos -->
+        <div class="absolute inset-0 bg-gradient-to-r from-slw-950/95 via-slw-950/85 to-slw-950/60 pointer-events-none"></div>
+
+        <div class="relative w-full px-6 sm:px-10 lg:px-16 pt-16 pb-24 lg:pt-24 lg:pb-32">
+            <div class="grid lg:grid-cols-12 gap-12 xl:gap-16 items-center">
+                
+                <!-- Izquierda (7 columnas): Titular amplio -->
+                <div class="lg:col-span-7 animate-fade-up">
+                    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-slw-sky mb-7">
+                        <span class="px-2 py-0.5 rounded-full bg-slw-blue text-white font-mono text-[10px] font-bold">SLW SAC</span>
+                        <span>Agencia de Carga Internacional & Comercio Exterior</span>
+                    </div>
+
+                    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-[64px] font-bold tracking-tight leading-[1.06] mb-6">
+                        Tu cadena logística global, <span class="text-transparent bg-clip-text bg-gradient-to-r from-slw-sky to-cyan-300">sin fricciones ni demoras.</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-base sm:text-lg xl:text-xl leading-relaxed max-w-3xl mb-10">
+                        Especialistas en transporte internacional de importación y exportación, carga consolidada <strong>LCL</strong>, contenedores completos <strong>FCL</strong> y gestión aduanera integral desde y hacia el Perú.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-4">
+                        <a href="contacto.html" class="bg-slw-blue hover:bg-slw-sky hover:text-slw-950 text-white font-bold px-8 py-4 rounded-full transition-all duration-200 shadow-xl shadow-slw-blue/30">
+                            Cotizar mi carga ahora
+                        </a>
+                        <a href="https://wa.link/kc7lwu" target="_blank" class="inline-flex items-center gap-2.5 bg-white/5 hover:bg-white/10 border border-white/15 text-white font-semibold px-7 py-4 rounded-full transition">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                            <span>Asesoría por WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <!-- Barra de confianza extendida -->
+                    <div class="mt-14 pt-8 border-t border-white/10 grid grid-cols-3 gap-8 max-w-2xl">
+                        <div>
+                            <div class="font-display text-2xl sm:text-3xl xl:text-4xl font-bold text-white">FCL / LCL</div>
+                            <div class="text-xs sm:text-sm text-slate-400 mt-1">Marítimo y Aéreo</div>
+                        </div>
+                        <div>
+                            <div class="font-display text-2xl sm:text-3xl xl:text-4xl font-bold text-slw-sky">360°</div>
+                            <div class="text-xs sm:text-sm text-slate-400 mt-1">Carga + Aduana + Seguro</div>
+                        </div>
+                        <div>
+                            <div class="font-display text-2xl sm:text-3xl xl:text-4xl font-bold text-white">24/7</div>
+                            <div class="text-xs sm:text-sm text-slate-400 mt-1">Trazabilidad Web</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Derecha (5 columnas): Centro Operativo -->
+                <div class="lg:col-span-5 animate-fade-up" style="animation-delay: 0.12s;">
+                    <div class="relative rounded-3xl overflow-hidden border border-white/15 bg-slw-900/90 backdrop-blur-xl shadow-2xl">
+                        <div class="relative h-56 xl:h-64 overflow-hidden">
+                            <!-- Imagen con respaldo automático local / internet -->
+                            <img data-local="assets/img/centro-operativo.jpg" data-fallback="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1200&q=80" alt="Buque portacontenedores SL Worldwide" class="fallback-img w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slw-900 via-slw-900/40 to-transparent"></div>
+                            <div class="absolute bottom-5 left-6 right-6 flex items-end justify-between">
+                                <div>
+                                    <span class="font-mono text-[10px] uppercase tracking-widest text-slw-sky block">Centro Operativo</span>
+                                    <h2 class="font-display text-xl xl:text-2xl font-bold text-white">Tracking & Tarifas en Línea</h2>
+                                </div>
+                                <span class="px-3.5 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 font-mono text-[10px] font-bold">ONLINE</span>
+                            </div>
+                        </div>
+
+                        <div class="p-6 sm:p-7 space-y-3.5">
+                            <a href="https://trackingweb.andessystems.com.pe/e7vEMQn4LgYaZiA=/login" target="_blank" class="group flex items-center justify-between p-4 rounded-2xl bg-white/5 hover:bg-slw-blue border border-white/10 hover:border-slw-blue transition-all">
+                                <div class="flex items-center gap-3.5">
+                                    <div class="w-11 h-11 rounded-xl bg-slw-blue/20 group-hover:bg-white/20 text-slw-sky group-hover:text-white flex items-center justify-center font-mono font-bold text-sm">01</div>
+                                    <div>
+                                        <span class="block font-bold text-sm text-white">Tracking de Carga</span>
+                                        <span class="block text-xs text-slate-400 group-hover:text-sky-100">Seguimiento marítimo y aéreo</span>
+                                    </div>
+                                </div>
+                                <span class="text-slate-400 group-hover:text-white group-hover:translate-x-1 transition-transform">→</span>
+                            </a>
+
+                            <a href="http://teleaduana.slwsac.com./teleaduana/" target="_blank" class="group flex items-center justify-between p-4 rounded-2xl bg-white/5 hover:bg-slw-blue border border-white/10 hover:border-slw-blue transition-all">
+                                <div class="flex items-center gap-3.5">
+                                    <div class="w-11 h-11 rounded-xl bg-slw-blue/20 group-hover:bg-white/20 text-slw-sky group-hover:text-white flex items-center justify-center font-mono font-bold text-sm">02</div>
+                                    <div>
+                                        <span class="block font-bold text-sm text-white">Tracking de Aduanas</span>
+                                        <span class="block text-xs text-slate-400 group-hover:text-sky-100">Estado de DAM y levante Teleaduana</span>
+                                    </div>
+                                </div>
+                                <span class="text-slate-400 group-hover:text-white group-hover:translate-x-1 transition-transform">→</span>
+                            </a>
+
+                            <div class="grid grid-cols-2 gap-3.5 pt-2">
+                                <a href="assets/docs/tarifas-carga.pdf" target="_blank" class="p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 text-center transition">
+                                    <span class="block font-mono text-[10px] text-slw-sky uppercase">PDF Vigente</span>
+                                    <span class="block font-bold text-xs text-white mt-0.5">Tarifas Carga</span>
+                                </a>
+                                <a href="https://naves.dpworldcallao.com.pe/programacion/" target="_blank" class="p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 text-center transition">
+                                    <span class="block font-mono text-[10px] text-amber-400 uppercase">Callao</span>
+                                    <span class="block font-bold text-xs text-white mt-0.5">Naves DP World</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BENTO GRID FULL-WIDTH DE SERVICIOS LOGÍSTICOS -->
+    <section class="w-full py-24 bg-slate-50">
+        <div class="w-full px-6 sm:px-10 lg:px-16">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-14 gap-6">
+                <div class="max-w-3xl">
+                    <span class="font-mono text-xs font-bold uppercase tracking-widest text-slw-blue">Soluciones Integrales</span>
+                    <h2 class="font-display text-3xl sm:text-4xl xl:text-5xl font-bold text-slw-900 mt-2 tracking-tight">
+                        Todo lo que tu operación de comercio exterior necesita en un solo operador
+                    </h2>
+                </div>
+                <a href="servicios.html" class="inline-flex items-center gap-2 text-sm font-bold text-slw-blue hover:text-slw-900 transition shrink-0">
+                    <span>Ver ficha técnica de todos los servicios</span>
+                    <span>→</span>
+                </a>
+            </div>
+
+            <!-- Bento Grid Asimétrico a Ancho Completo -->
+            <div class="grid grid-cols-1 md:grid-cols-6 gap-6 xl:gap-8">
+                
+                <!-- Card 1 (Grande - 4 cols): Carga Internacional -->
+                <a href="servicios.html#carga-internacional" class="md:col-span-4 group relative rounded-3xl bg-slw-900 text-white p-8 sm:p-10 xl:p-12 overflow-hidden flex flex-col justify-between min-h-[320px] shadow-sm hover:shadow-2xl transition-all duration-300">
+                    <img data-local="assets/img/servicio-carga.jpg" data-fallback="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=1400&q=80" alt="Carga Internacional" class="fallback-img absolute inset-0 w-full h-full object-cover opacity-25 group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-r from-slw-950 via-slw-900/90 to-transparent"></div>
+                    
+                    <div class="relative z-10 flex items-center justify-between">
+                        <span class="px-3.5 py-1.5 rounded-full bg-slw-blue/20 border border-slw-blue/40 text-slw-sky font-mono text-xs font-bold">MARÍTIMO & AÉREO</span>
+                        <span class="w-11 h-11 rounded-full bg-white/10 group-hover:bg-slw-blue flex items-center justify-center transition">↗</span>
+                    </div>
+
+                    <div class="relative z-10 max-w-2xl mt-12">
+                        <h3 class="font-display text-2xl sm:text-3xl xl:text-4xl font-bold mb-3">Carga Internacional</h3>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            Especialistas en importación y exportación de carga consolidada <strong>LCL</strong>, contenedores completos <strong>FCL</strong> y embarques aéreos urgentes desde Asia, América y Europa.
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Card 2 (2 cols): Agente de Aduana -->
+                <a href="servicios.html#agente-aduana" class="md:col-span-2 group rounded-3xl bg-white border border-slate-200/90 p-8 xl:p-10 flex flex-col justify-between hover:border-slw-blue hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center justify-between">
+                        <div class="w-13 h-13 p-3 rounded-2xl bg-sky-50 text-slw-blue flex items-center justify-center">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <span class="text-slate-400 group-hover:text-slw-blue transition text-lg">↗</span>
+                    </div>
+                    <div class="mt-8">
+                        <span class="font-mono text-[11px] text-slw-blue font-bold uppercase">SLW Aduanas</span>
+                        <h3 class="font-display text-xl xl:text-2xl font-bold text-slw-900 mt-1 mb-2.5">Agente de Aduana</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Despacho anticipado y diferido, clasificación arancelaria y gestión ágil ante SUNAT para liberar tu mercancía sin sobrecostos.
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Card 3 (2 cols): Seguro de Carga -->
+                <a href="servicios.html#seguro-carga" class="md:col-span-2 group rounded-3xl bg-white border border-slate-200/90 p-8 xl:p-10 flex flex-col justify-between hover:border-slw-blue hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center justify-between">
+                        <div class="w-13 h-13 p-3 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                        </div>
+                        <span class="text-slate-400 group-hover:text-slw-blue transition text-lg">↗</span>
+                    </div>
+                    <div class="mt-8">
+                        <span class="font-mono text-[11px] text-emerald-600 font-bold uppercase">Cobertura Puerta a Puerta</span>
+                        <h3 class="font-display text-xl xl:text-2xl font-bold text-slw-900 mt-1 mb-2.5">Seguro de Carga</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Pólizas internacionales contra todo riesgo que protegen tu inversión durante el tránsito marítimo, aéreo y terrestre.
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Card 4 (2 cols): Transporte Terrestre -->
+                <a href="servicios.html#transporte-terrestre" class="md:col-span-2 group rounded-3xl bg-white border border-slate-200/90 p-8 xl:p-10 flex flex-col justify-between hover:border-slw-blue hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center justify-between">
+                        <div class="w-13 h-13 p-3 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+                        </div>
+                        <span class="text-slate-400 group-hover:text-slw-blue transition text-lg">↗</span>
+                    </div>
+                    <div class="mt-8">
+                        <span class="font-mono text-[11px] text-amber-600 font-bold uppercase">Monitoreo GPS</span>
+                        <h3 class="font-display text-xl xl:text-2xl font-bold text-slw-900 mt-1 mb-2.5">Transporte Terrestre</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Flota especializada para traslado de contenedores FCL y carga suelta LCL desde puerto o aeropuerto hasta tu almacén.
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Card 5 (2 cols): Depósito Temporal -->
+                <a href="servicios.html#deposito-temporal" class="md:col-span-2 group rounded-3xl bg-white border border-slate-200/90 p-8 xl:p-10 flex flex-col justify-between hover:border-slw-blue hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center justify-between">
+                        <div class="w-13 h-13 p-3 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                        </div>
+                        <span class="text-slate-400 group-hover:text-slw-blue transition text-lg">↗</span>
+                    </div>
+                    <div class="mt-8">
+                        <span class="font-mono text-[11px] text-indigo-600 font-bold uppercase">Custodia & Almacén</span>
+                        <h3 class="font-display text-xl xl:text-2xl font-bold text-slw-900 mt-1 mb-2.5">Depósito Temporal</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Almacenaje aduanero y simple con infraestructura segura, control de inventarios y desconsolidación eficiente.
+                        </p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SIMULADOR INTERACTIVO DE MODALIDAD FULL-WIDTH -->
+    <section class="w-full py-24 bg-white border-y border-slate-100">
+        <div class="w-full px-6 sm:px-10 lg:px-16">
+            <div class="grid lg:grid-cols-12 gap-12 xl:gap-16 items-center">
+                <div class="lg:col-span-5">
+                    <span class="font-mono text-xs font-bold uppercase tracking-widest text-slw-blue">Asesoría Inteligente</span>
+                    <h2 class="font-display text-3xl sm:text-4xl xl:text-5xl font-bold text-slw-900 mt-2 mb-4 tracking-tight">
+                        ¿Qué modalidad conviene más para tu carga?
+                    </h2>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-7">
+                        Selecciona el volumen o urgencia de tu mercancía para ver la recomendación operativa de nuestro equipo y solicitar tu tarifa exacta.
+                    </p>
+                    <div class="space-y-3" id="modalidad-selector">
+                        <button type="button" data-mod="lcl" class="mod-btn w-full text-left p-5 rounded-2xl border-2 border-slw-blue bg-sky-50/50 transition">
+                            <span class="block font-bold text-sm sm:text-base text-slw-900">Carga Consolidada (LCL)</span>
+                            <span class="block text-xs text-slate-500 mt-1">Ideal para cargas de 1 m³ hasta 15 m³ que comparten contenedor.</span>
+                        </button>
+                        <button type="button" data-mod="fcl" class="mod-btn w-full text-left p-5 rounded-2xl border border-slate-200 hover:border-slate-300 transition">
+                            <span class="block font-bold text-sm sm:text-base text-slw-900">Contenedor Completo (FCL 20' / 40' HC)</span>
+                            <span class="block text-xs text-slate-500 mt-1">Máxima seguridad y menor costo por unidad para grandes volúmenes.</span>
+                        </button>
+                        <button type="button" data-mod="air" class="mod-btn w-full text-left p-5 rounded-2xl border border-slate-200 hover:border-slate-300 transition">
+                            <span class="block font-bold text-sm sm:text-base text-slw-900">Carga Aérea Internacional</span>
+                            <span class="block text-xs text-slate-500 mt-1">Tránsitos rápidos desde Asia, EE.UU. y Europa para mercancía urgente.</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Panel Dinámico de Resultado -->
+                <div class="lg:col-span-7">
+                    <div id="mod-card" class="bg-slw-900 text-white rounded-3xl p-8 sm:p-12 shadow-2xl border border-white/10">
+                        <div class="flex flex-wrap items-center justify-between gap-2 pb-6 border-b border-white/10">
+                            <div>
+                                <span id="mod-tag" class="font-mono text-xs text-slw-sky uppercase">MODALIDAD RECOMENDADA • MARÍTIMO LCL</span>
+                                <h3 id="mod-title" class="font-display text-2xl sm:text-3xl xl:text-4xl font-bold mt-1">Consolidado Marítimo (LCL)</h3>
+                            </div>
+                            <span id="mod-badge" class="px-3.5 py-1.5 rounded-full bg-white/10 font-mono text-xs">Salidas Semanales</span>
+                        </div>
+
+                        <p id="mod-desc" class="text-slate-300 text-sm sm:text-base leading-relaxed mt-7 mb-7">
+                            Pagas únicamente por el espacio (metros cúbicos o toneladas) que ocupa tu carga dentro del contenedor. Consolidamos tus compras de uno o varios proveedores en origen.
+                        </p>
+
+                        <div id="mod-bullets" class="grid sm:grid-cols-2 gap-3.5 mb-9 text-xs sm:text-sm text-slate-200">
+                            <div class="p-4 rounded-xl bg-white/5 border border-white/10">✓ Consolidación directa desde principales puertos</div>
+                            <div class="p-4 rounded-xl bg-white/5 border border-white/10">✓ Desconsolidación ágil en Callao</div>
+                            <div class="p-4 rounded-xl bg-white/5 border border-white/10">✓ Ideal para importadores en crecimiento</div>
+                            <div class="p-4 rounded-xl bg-white/5 border border-white/10">✓ Integración con despacho aduanero</div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-5 border-t border-white/10">
+                            <span class="text-xs sm:text-sm text-slate-400">¿Listo para recibir tu cotización?</span>
+                            <a id="mod-cta" href="contacto.html?servicio=Carga+Consolidada+LCL" class="w-full sm:w-auto text-center bg-slw-blue hover:bg-slw-sky hover:text-slw-950 text-white font-bold text-xs uppercase tracking-wider px-7 py-4 rounded-full transition">
+                                Cotizar Consolidado LCL →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BANNER FINAL FULL-WIDTH -->
+    <section class="w-full py-20 bg-gradient-to-r from-slw-900 via-slw-800 to-slw-900 text-white">
+        <div class="w-full px-6 sm:px-10 lg:px-16 flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div class="max-w-3xl text-center lg:text-left">
+                <span class="font-mono text-xs text-slw-sky uppercase tracking-widest">SL Worldwide S.A.C.</span>
+                <h2 class="font-display text-3xl sm:text-4xl xl:text-5xl font-bold mt-2">¡Llevamos lejos tu idea!</h2>
+                <p class="text-slate-300 text-sm sm:text-base mt-3">
+                    Nuestro equipo comercial y operativo está listo para gestionar tu próxima importación o exportación con garantía y puntualidad.
+                </p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4 shrink-0">
+                <a href="contacto.html" class="bg-white text-slw-900 hover:bg-slw-sky hover:text-slw-950 font-bold px-8 py-4 rounded-full transition shadow-lg">
+                    Contáctanos
+                </a>
+                <a href="https://wa.link/kc7lwu" target="_blank" class="bg-emerald-500 hover:bg-emerald-400 text-slw-950 font-bold px-8 py-4 rounded-full transition shadow-lg">
+                    WhatsApp Directo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER FULL-WIDTH -->
+    <footer class="w-full bg-slw-950 text-slate-400 pt-16 pb-10 border-t border-white/10">
+        <div class="w-full px-6 sm:px-10 lg:px-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-white/10">
+                <div>
+                    <div class="bg-white inline-block px-3.5 py-2 rounded-xl mb-5">
+                        <img src="assets/img/logo-slwgroup.png" alt="SL Worldwide S.A.C." class="h-16 w-auto">
+                    </div>
+                    <p class="text-xs leading-relaxed text-slate-400 mb-4 max-w-sm">
+                        Agencia de carga internacional especializada en transporte marítimo FCL/LCL, carga aérea, agenciamiento de aduanas y logística integral.
+                    </p>
+                    <a href="https://linktr.ee/slworlwide" target="_blank" class="font-mono text-xs text-slw-sky hover:underline">
+                        linktr.ee/slworlwide ↗
+                    </a>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-display font-bold text-sm mb-4">Navegación</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="index.html" class="hover:text-white transition">Inicio</a></li>
+                        <li><a href="nosotros.html" class="hover:text-white transition">Nosotros</a></li>
+                        <li><a href="servicios.html" class="hover:text-white transition">Nuestros Servicios</a></li>
+                        <li><a href="enlaces.html" class="hover:text-white transition">Enlaces de Interés</a></li>
+                        <li><a href="contacto.html" class="hover:text-white transition">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-display font-bold text-sm mb-4">Contacto</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="tel:012849927" class="hover:text-white transition">Fijo: (01) 284 9927</a></li>
+                        <li><a href="https://wa.me/51915184742" target="_blank" class="hover:text-white transition">Cel: 915 184 742 / 986 940 423</a></li>
+                        <li><a href="mailto:ventas@slwsac.com" class="hover:text-white transition">ventas@slwsac.com</a></li>
+                        <li class="text-slate-500 pt-1">Calle Fray Martín de Murúa 150, Of. 606 - 607, San Miguel, Lima</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-display font-bold text-sm mb-4">Libro de Reclamaciones</h4>
+                    <p class="text-xs text-slate-500 mb-4">
+                        Canal oficial de atención de reclamos y quejas conforme a normativa vigente.
+                    </p>
+                    <a href="libro-reclamaciones.html" class="block bg-white/5 hover:bg-white/10 border border-white/10 p-4 rounded-2xl transition">
+                        <span class="block text-white font-bold text-xs">Libro de Reclamaciones Virtual</span>
+                        <span class="block font-mono text-[11px] text-slw-sky mt-1">SL Worldwide / SLW Aduanas →</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-2">
+                <p>© 2026 SL WORLDWIDE S.A.C. Todos los derechos reservados.</p>
+                <p class="font-mono">Lima — Perú</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <div id="wsp-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+        <div id="wsp-bubble" class="relative bg-white text-slw-900 px-4 py-3 rounded-2xl shadow-2xl border border-slate-200 max-w-[230px] text-xs leading-snug animate-fade-up">
+            <button type="button" onclick="document.getElementById('wsp-bubble').remove()" aria-label="Cerrar mensaje" class="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-slate-800 text-white hover:bg-slate-950 flex items-center justify-center text-[11px] font-bold shadow cursor-pointer">
+                ✕
+            </button>
+            <p class="font-semibold text-slw-900">¿Necesitas cotizar tu carga?</p>
+            <p class="text-slate-500 mt-0.5">Escríbenos directo por WhatsApp.</p>
+        </div>
+
+        <a href="https://wa.link/kc7lwu" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp con SL Worldwide" class="group flex items-center gap-3 bg-[#25D366] hover:bg-[#1EBE5D] text-white pl-4 pr-5 py-3.5 rounded-full shadow-2xl shadow-emerald-600/35 transition-all duration-200 hover:scale-105">
+            <svg class="w-7 h-7 fill-current shrink-0" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+                <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+            </svg>
+            <span class="font-bold text-sm tracking-tight">WhatsApp</span>
+        </a>
+    </div>
+
+    <!-- JAVASCRIPT AUTOCONTENIDO CON LÓGICA DE VALIDACIÓN DE IMÁGENES -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Función auxiliar para comprobar si una imagen local existe antes de aplicarla
+            function checkImage(localUrl, fallbackUrl, callback) {
+                const img = new Image();
+                img.onload = () => callback(localUrl);    // Si existe localmente
+                img.onerror = () => callback(fallbackUrl); // Si no existe, usa la de internet
+                img.src = localUrl;
+            }
+
+            // 1. Aplicar verificación a las imágenes de fondo del carrusel (Hero)
+            const slides = document.querySelectorAll('.hero-slide');
+            slides.forEach(slide => {
+                const local = slide.getAttribute('data-local');
+                const fallback = slide.getAttribute('data-fallback');
+                checkImage(local, fallback, (finalUrl) => {
+                    slide.style.backgroundImage = `url('${finalUrl}')`;
+                });
+            });
+
+            // 2. Aplicar verificación a las etiquetas <img> (como el Centro Operativo y Bento Grid)
+            const fallbackImages = document.querySelectorAll('.fallback-img');
+            fallbackImages.forEach(img => {
+                const local = img.getAttribute('data-local');
+                const fallback = img.getAttribute('data-fallback');
+                checkImage(local, fallback, (finalUrl) => {
+                    img.src = finalUrl;
+                });
+            });
+
+            // 3. Menú móvil
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const mobileDrawer = document.getElementById('mobile-drawer');
+            if (mobileToggle && mobileDrawer) {
+                mobileToggle.addEventListener('click', () => {
+                    mobileDrawer.classList.toggle('hidden');
+                });
+            }
+
+            // 4. Carrusel Automático de Imágenes de Fondo en el Hero
+            let currentSlide = 0;
+            if (slides.length > 0) {
+                setInterval(() => {
+                    slides[currentSlide].classList.remove('opacity-100');
+                    slides[currentSlide].classList.add('opacity-0');
+                    
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    
+                    slides[currentSlide].classList.remove('opacity-0');
+                    slides[currentSlide].classList.add('opacity-100');
+                }, 5000); // Cambia de imagen cada 5 segundos
+            }
+
+            // 5. Simulador Interactivo de Modalidad de Carga
+            const modalidades = {
+                lcl: {
+                    tag: 'MODALIDAD RECOMENDADA • MARÍTIMO LCL',
+                    title: 'Consolidado Marítimo (LCL)',
+                    badge: 'Salidas Semanales',
+                    desc: 'Pagas únicamente por el espacio (metros cúbicos o toneladas) que ocupa tu carga dentro del contenedor. Consolidamos tus compras de uno o varios proveedores en origen.',
+                    bullets: [
+                        '✓ Consolidación directa desde principales puertos',
+                        '✓ Desconsolidación ágil en Callao',
+                        '✓ Ideal para importadores en crecimiento',
+                        '✓ Integración con despacho aduanero'
+                    ],
+                    ctaText: 'Cotizar Consolidado LCL →',
+                    ctaHref: 'contacto.html?servicio=Carga+Consolidada+LCL'
+                },
+                fcl: {
+                    tag: 'MODALIDAD RECOMENDADA • MARÍTIMO FCL',
+                    title: "Contenedor Completo (20' / 40' HC)",
+                    badge: 'Exclusividad Total',
+                    desc: 'Contenedor precintado en origen exclusivamente para tu mercancía. Reduce manipulaciones intermedias y optimiza el costo logístico por unidad importada o exportada.',
+                    bullets: [
+                        "✓ Equipos Dry, High Cube, Reefer y Open Top",
+                        '✓ Negociación directa con líneas navieras',
+                        '✓ Mayor seguridad contra daños o mermas',
+                        '✓ Traslado directo de puerto a tu almacén'
+                    ],
+                    ctaText: 'Cotizar Contenedor FCL →',
+                    ctaHref: 'contacto.html?servicio=Contenedor+Completo+FCL'
+                },
+                air: {
+                    tag: 'MODALIDAD RECOMENDADA • TRANSPORTE AÉREO',
+                    title: 'Carga Aérea Internacional',
+                    badge: 'Tránsito Prioritario',
+                    desc: 'La solución más veloz para reposición urgente de inventarios, repuestos críticos, muestras o mercancía de alto valor desde cualquier aeropuerto internacional hacia Lima.',
+                    bullets: [
+                        '✓ Conexiones diarias y vuelos directos',
+                        '✓ Despacho aduanero expreso en Jorge Chávez',
+                        '✓ Manejo de carga general y valorada',
+                        '✓ Seguimiento por guía aérea (AWB)'
+                    ],
+                    ctaText: 'Cotizar Flete Aéreo →',
+                    ctaHref: 'contacto.html?servicio=Carga+Aerea'
+                }
+            };
+
+            const modBtns = document.querySelectorAll('.mod-btn');
+            const modTag = document.getElementById('mod-tag');
+            const modTitle = document.getElementById('mod-title');
+            const modBadge = document.getElementById('mod-badge');
+            const modDesc = document.getElementById('mod-desc');
+            const modBullets = document.getElementById('mod-bullets');
+            const modCta = document.getElementById('mod-cta');
+
+            modBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const key = btn.getAttribute('data-mod');
+                    const data = modalidades[key];
+                    if (!data) return;
+
+                    modBtns.forEach(b => {
+                        b.classList.remove('border-2', 'border-slw-blue', 'bg-sky-50/50');
+                        b.classList.add('border', 'border-slate-200');
+                    });
+                    btn.classList.remove('border', 'border-slate-200');
+                    btn.classList.add('border-2', 'border-slw-blue', 'bg-sky-50/50');
+
+                    modTag.textContent = data.tag;
+                    modTitle.textContent = data.title;
+                    modBadge.textContent = data.badge;
+                    modDesc.textContent = data.desc;
+                    modBullets.innerHTML = data.bullets
+                        .map(item => `<div class="p-4 rounded-xl bg-white/5 border border-white/10">${item}</div>`)
+                        .join('');
+                    modCta.textContent = data.ctaText;
+                    modCta.href = data.ctaHref;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
