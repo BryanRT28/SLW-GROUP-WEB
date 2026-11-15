@@ -39,6 +39,32 @@
             background-image: radial-gradient(rgba(56, 189, 248, 0.14) 1px, transparent 1px);
             background-size: 28px 28px;
         }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Clases para animación de entrada al hacer scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-fade-up {
+            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-6px);
+        }
     </style>
 </head>
 <body class="font-sans text-slate-800 bg-white antialiased selection:bg-slw-blue selection:text-white overflow-x-hidden">
@@ -62,16 +88,16 @@
                     <a href="mailto:ventas@slwsac.com" class="hidden sm:inline text-slw-sky hover:underline">ventas@slwsac.com</a>
                 </div>
                 <div class="flex items-center gap-3.5 border-l border-white/15 pl-5 text-slate-400">
-                    <a href="https://www.facebook.com/SlwOficial/" target="_blank" class="hover:text-white transition">FB</a>
-                    <a href="https://www.instagram.com/slwsac_oficial/" target="_blank" class="hover:text-white transition">IG</a>
-                    <a href="https://www.linkedin.com/in/slw-group-44528717a/" target="_blank" class="hover:text-white transition">IN</a>
+                    <a href="https://www.facebook.com/SlwOficial/" target="_blank" class="hover:text-white transition hover:scale-110 inline-block">FB</a>
+                    <a href="https://www.instagram.com/slwsac_oficial/" target="_blank" class="hover:text-white transition hover:scale-110 inline-block">IG</a>
+                    <a href="https://www.linkedin.com/in/slw-group-44528717a/" target="_blank" class="hover:text-white transition hover:scale-110 inline-block">IN</a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- NAVBAR FULL-WIDTH -->
-    <header class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-xl border-b border-slate-200/80">
+    <header class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-xl border-b border-slate-200/80 transition-all duration-300">
         <div class="w-full px-6 sm:px-10 lg:px-16">
             <div class="flex items-center justify-between h-20">
                 <!-- Logotipo -->
@@ -87,44 +113,43 @@
                 </a>
 
                 <nav class="hidden lg:flex items-center gap-8 xl:gap-10 text-sm font-semibold text-slate-700">
-                    <a href="index.html" class="hover:text-slw-900 transition">Inicio</a>
+                    <a href="index.html" class="hover:text-slw-blue transition-colors">Inicio</a>
                     <a href="nosotros.html" class="text-slw-blue font-bold">Nosotros</a>
                     
                     <div class="relative group">
-                        <a href="servicios.html" class="flex items-center gap-1 hover:text-slw-900 transition py-3">
+                        <a href="servicios.html" class="flex items-center gap-1 hover:text-slw-blue transition-colors py-3">
                             <span>Servicios</span>
-                            <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-slw-blue transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            <svg class="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                         </a>
-                        <div class="absolute left-0 top-full w-64 bg-white rounded-2xl shadow-2xl border border-slate-100 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                            <a href="servicios.html#carga-internacional" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-slw-blue">
+                        <div class="absolute left-0 top-full w-64 bg-white rounded-2xl shadow-2xl border border-slate-100 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                            <a href="servicios.html#carga-internacional" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-sky-50 hover:text-slw-blue transition">
                                 <span>Carga Internacional</span>
                                 <span class="font-mono text-[10px] text-slate-400">FCL/LCL</span>
                             </a>
-                            <a href="servicios.html#agente-aduana" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-slw-blue">
+                            <a href="servicios.html#agente-aduana" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-sky-50 hover:text-slw-blue transition">
                                 <span>Agente de Aduana</span>
                                 <span class="font-mono text-[10px] text-slate-400">SUNAT</span>
                             </a>
-                            <a href="servicios.html#seguro-carga" class="block px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-slw-blue">Seguro de Carga</a>
-                            <a href="servicios.html#transporte-terrestre" class="block px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-slw-blue">Transporte Terrestre</a>
-                            <a href="servicios.html#deposito-temporal" class="block px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-slw-blue">Depósito Temporal</a>
+                            <a href="servicios.html#seguro-carga" class="block px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-sky-50 hover:text-slw-blue transition">Seguro de Carga</a>
+                            <a href="servicios.html#transporte-terrestre" class="block px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-sky-50 hover:text-slw-blue transition">Transporte Terrestre</a>
+                            <a href="servicios.html#deposito-temporal" class="block px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-sky-50 hover:text-slw-blue transition">Depósito Temporal</a>
                         </div>
                     </div>
 
-                    <a href="enlaces.html" class="hover:text-slw-900 transition">Enlaces de Interés</a>
-
-                    <a href="contacto.html" class="hover:text-slw-blue transition-colors duration-200 hover:-translate-y-0.5 inline-block">Contacto</a>
+                    <a href="enlaces.html" class="hover:text-slw-blue transition-colors">Enlaces de Interés</a>
+                    <a href="contacto.html" class="hover:text-slw-blue transition-colors">Contacto</a>
 
                     <div class="relative group">
-                        <button type="button" class="flex items-center gap-1 hover:text-slw-900 transition py-3">
+                        <button type="button" class="flex items-center gap-1 hover:text-slw-blue transition-colors py-3">
                             <span>Tarifas</span>
-                            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            <svg class="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                         </button>
-                        <div class="absolute left-0 top-full w-60 bg-white rounded-2xl shadow-2xl border border-slate-100 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                            <a href="assets/docs/tarifas-carga.pdf" target="_blank" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-slw-blue">
+                        <div class="absolute left-0 top-full w-60 bg-white rounded-2xl shadow-2xl border border-slate-100 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                            <a href="assets/docs/tarifas-carga.pdf" target="_blank" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-sky-50 hover:text-slw-blue transition">
                                 <span>Tarifas Carga Marítima</span>
                                 <span class="font-mono text-[10px] bg-sky-50 text-slw-blue px-2 py-0.5 rounded-md">PDF</span>
                             </a>
-                            <a href="assets/docs/tarifas-aduaneras.pdf" target="_blank" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-slw-blue">
+                            <a href="assets/docs/tarifas-aduaneras.pdf" target="_blank" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-sky-50 hover:text-slw-blue transition">
                                 <span>Tarifas Aduaneras</span>
                                 <span class="font-mono text-[10px] bg-sky-50 text-slw-blue px-2 py-0.5 rounded-md">PDF</span>
                             </a>
@@ -132,19 +157,19 @@
                     </div>
 
                     <div class="relative group">
-                        <button type="button" class="flex items-center gap-2 text-slw-900 bg-slate-100 hover:bg-slate-200/70 px-4 py-2 rounded-full transition">
-                            <span class="w-2 h-2 rounded-full bg-slw-blue"></span>
+                        <button type="button" class="flex items-center gap-2 text-slw-900 bg-slate-100 hover:bg-slw-blue hover:text-white px-4 py-2 rounded-full transition-all duration-300 shadow-sm">
+                            <span class="w-2 h-2 rounded-full bg-slw-blue group-hover:bg-white animate-pulse"></span>
                             <span>Tracking Web</span>
                         </button>
-                        <div class="absolute right-0 top-full mt-1 w-64 bg-white rounded-2xl shadow-2xl border border-slate-100 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                            <a href="https://trackingweb.andessystems.com.pe/e7vEMQn4LgYaZiA=/login" target="_blank" class="block px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-slw-blue">
+                        <div class="absolute right-0 top-full mt-1 w-64 bg-white rounded-2xl shadow-2xl border border-slate-100 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                            <a href="https://trackingweb.andessystems.com.pe/e7vEMQn4LgYaZiA=/login" target="_blank" class="block px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-sky-50 hover:text-slw-blue transition">
                                 Tracking de Carga Internacional ↗
                             </a>
-                            <a href="http://teleaduana.slwsac.com./teleaduana/" target="_blank" class="block px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-slw-blue">
+                            <a href="http://teleaduana.slwsac.com./teleaduana/" target="_blank" class="block px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-sky-50 hover:text-slw-blue transition">
                                 Tracking de Aduanas (Teleaduana) ↗
                             </a>
                             <div class="my-1 border-t border-slate-100"></div>
-                            <a href="https://naves.dpworldcallao.com.pe/programacion/" target="_blank" class="block px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slw-blue hover:bg-sky-50">
+                            <a href="https://naves.dpworldcallao.com.pe/programacion/" target="_blank" class="block px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slw-blue hover:bg-sky-50 transition">
                                 Llegada de Naves — DP World ↗
                             </a>
                         </div>
@@ -152,29 +177,29 @@
                 </nav>
 
                 <div class="flex items-center gap-3">
-                    <a href="contacto.html" class="hidden sm:inline-flex items-center gap-2 bg-slw-blue hover:bg-slw-900 text-white text-xs font-bold px-6 py-3.5 rounded-full shadow-lg shadow-slw-blue/25 transition-all duration-200">
+                    <a href="contacto.html" class="hidden sm:inline-flex items-center gap-2 bg-slw-blue hover:bg-slw-900 text-white text-xs font-bold px-6 py-3.5 rounded-full shadow-lg shadow-slw-blue/25 transition-all duration-300 hover:scale-105 active:scale-95">
                         <span>Cotizar Embarque</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                     </a>
-                    <button id="mobile-toggle" type="button" class="lg:hidden p-2.5 rounded-xl border border-slate-200 text-slw-900 hover:bg-slate-50" aria-label="Menú">
+                    <button id="mobile-toggle" type="button" class="lg:hidden p-2.5 rounded-xl border border-slate-200 text-slw-900 hover:bg-slate-50 transition-colors" aria-label="Menú">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                     </button>
                 </div>
             </div>
         </div>
 
-        <div id="mobile-drawer" class="hidden lg:hidden bg-white border-t border-slate-100 px-6 py-6 space-y-3 shadow-2xl">
+        <div id="mobile-drawer" class="hidden lg:hidden bg-white border-t border-slate-100 px-6 py-6 space-y-3 shadow-2xl transition-all">
             <a href="index.html" class="block py-1.5 font-semibold text-slate-800">Inicio</a>
             <a href="nosotros.html" class="block py-1.5 font-bold text-slw-blue">Nosotros</a>
             <a href="servicios.html" class="block py-1.5 font-semibold text-slate-800">Servicios</a>
             <a href="enlaces.html" class="block py-1.5 font-semibold text-slate-800">Enlaces de Interés</a>
-            <a href="contacto.html" class="block text-center bg-slw-900 text-white font-bold py-3.5 rounded-xl mt-2">Solicitar Cotización</a>
+            <a href="contacto.html" class="block text-center bg-slw-900 text-white font-bold py-3.5 rounded-xl mt-2 hover:bg-slw-blue transition">Solicitar Cotización</a>
         </div>
     </header>
 
     <!-- BANNER DE CABECERA FULL-WIDTH -->
-    <section class="relative w-full bg-slw-950 text-white py-20 lg:py-28 overflow-hidden bg-nautical-grid">
-        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80" alt="Operaciones logísticas SL Worldwide" class="absolute inset-0 w-full h-full object-cover opacity-20">
+    <section class="relative w-full bg-slw-950 text-white py-20 lg:py-28 overflow-hidden bg-nautical-grid animate-fade-up">
+        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80" alt="Operaciones logísticas SL Worldwide" class="absolute inset-0 w-full h-full object-cover opacity-20 transform scale-105 transition-transform duration-[10000ms]">
         <div class="absolute inset-0 bg-gradient-to-r from-slw-950 via-slw-950/90 to-slw-900/70"></div>
         <div class="relative w-full px-6 sm:px-10 lg:px-16">
             <span class="font-mono text-xs font-bold uppercase tracking-widest text-slw-sky">Identidad Corporativa</span>
@@ -188,7 +213,7 @@
     </section>
 
     <!-- HISTORIA Y PROPUESTA DE VALOR -->
-    <section class="w-full py-24 bg-white">
+    <section class="w-full py-24 bg-white reveal">
         <div class="w-full px-6 sm:px-10 lg:px-16">
             <div class="grid lg:grid-cols-12 gap-12 xl:gap-16 items-center">
                 <div class="lg:col-span-6 space-y-6">
@@ -207,15 +232,15 @@
                     </p>
 
                     <div class="pt-4 grid grid-cols-2 sm:grid-cols-3 gap-6 border-t border-slate-100">
-                        <div>
+                        <div class="transform transition hover:scale-105">
                             <span class="block font-display text-3xl font-bold text-slw-blue">FCL / LCL</span>
                             <span class="text-xs text-slate-500 font-medium">Modalidades Marítimas</span>
                         </div>
-                        <div>
+                        <div class="transform transition hover:scale-105">
                             <span class="block font-display text-3xl font-bold text-slw-900">100%</span>
                             <span class="text-xs text-slate-500 font-medium">Trazabilidad en Línea</span>
                         </div>
-                        <div>
+                        <div class="transform transition hover:scale-105">
                             <span class="block font-display text-3xl font-bold text-slw-blue">Global</span>
                             <span class="text-xs text-slate-500 font-medium">Red de Agentes</span>
                         </div>
@@ -224,20 +249,20 @@
 
                 <div class="lg:col-span-6">
                     <div class="grid grid-cols-2 gap-4">
-                        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80" alt="Transporte marítimo" class="rounded-3xl h-72 w-full object-cover shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=800&q=80" alt="Operaciones portuarias" class="rounded-3xl h-72 w-full object-cover shadow-lg mt-8">
+                        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80" alt="Transporte marítimo" class="rounded-3xl h-72 w-full object-cover shadow-lg transform hover:scale-105 transition duration-500">
+                        <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=800&q=80" alt="Operaciones portuarias" class="rounded-3xl h-72 w-full object-cover shadow-lg mt-8 transform hover:scale-105 transition duration-500">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- MISIÓN, VISIÓN Y VALORES (3 COLUMNAS FULL-WIDTH) -->
-    <section class="w-full py-24 bg-slate-50 border-y border-slate-200/70">
+    <!-- MISIÓN, VISIÓN Y VALORES -->
+    <section class="w-full py-24 bg-slate-50 border-y border-slate-200/70 reveal">
         <div class="w-full px-6 sm:px-10 lg:px-16">
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Misión -->
-                <div class="bg-white p-8 xl:p-10 rounded-3xl border border-slate-200/80 shadow-sm">
+                <div class="bg-white p-8 xl:p-10 rounded-3xl border border-slate-200/80 shadow-sm hover-lift">
                     <span class="font-mono text-xs font-bold text-slw-blue bg-sky-50 px-3 py-1 rounded-full">01 / PROPÓSITO</span>
                     <h3 class="font-display text-2xl font-bold text-slw-900 mt-5 mb-3">Nuestra Misión</h3>
                     <p class="text-sm text-slate-600 leading-relaxed">
@@ -246,7 +271,7 @@
                 </div>
 
                 <!-- Visión -->
-                <div class="bg-slw-900 text-white p-8 xl:p-10 rounded-3xl shadow-xl">
+                <div class="bg-slw-900 text-white p-8 xl:p-10 rounded-3xl shadow-xl hover-lift">
                     <span class="font-mono text-xs font-bold text-slw-sky bg-white/10 px-3 py-1 rounded-full">02 / HORIZONTE</span>
                     <h3 class="font-display text-2xl font-bold mt-5 mb-3">Nuestra Visión</h3>
                     <p class="text-sm text-slate-300 leading-relaxed">
@@ -255,14 +280,14 @@
                 </div>
 
                 <!-- Valores -->
-                <div class="bg-white p-8 xl:p-10 rounded-3xl border border-slate-200/80 shadow-sm">
+                <div class="bg-white p-8 xl:p-10 rounded-3xl border border-slate-200/80 shadow-sm hover-lift">
                     <span class="font-mono text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full">03 / PRINCIPIOS</span>
                     <h3 class="font-display text-2xl font-bold text-slw-900 mt-5 mb-3">Nuestros Valores</h3>
                     <ul class="space-y-2 text-sm text-slate-600">
-                        <li>• <strong>Compromiso:</strong> Asumimos cada embarque como propio.</li>
-                        <li>• <strong>Transparencia:</strong> Información clara y oportuna en todo momento.</li>
-                        <li>• <strong>Agilidad:</strong> Respuesta rápida ante imprevistos portuarios.</li>
-                        <li>• <strong>Garantía:</strong> Cumplimiento estricto de normativas aduaneras.</li>
+                        <li><strong>Compromiso:</strong> Asumimos cada embarque como propio.</li>
+                        <li><strong>Transparencia:</strong> Información clara y oportuna en todo momento.</li>
+                        <li><strong>Agilidad:</strong> Respuesta rápida ante imprevistos portuarios.</li>
+                        <li><strong>Garantía:</strong> Cumplimiento estricto de normativas aduaneras.</li>
                     </ul>
                 </div>
             </div>
@@ -270,58 +295,62 @@
     </section>
 
     <!-- BANNER CTA -->
-    <section class="w-full py-20 bg-gradient-to-r from-slw-900 via-slw-800 to-slw-900 text-white">
+    <section class="w-full py-20 bg-gradient-to-r from-slw-900 via-slw-800 to-slw-900 text-white reveal">
         <div class="w-full px-6 sm:px-10 lg:px-16 flex flex-col lg:flex-row items-center justify-between gap-8">
             <div class="max-w-3xl text-center lg:text-left">
                 <h2 class="font-display text-3xl sm:text-4xl font-bold">SL Worldwide, agencia de carga internacional a tu disposición</h2>
                 <p class="text-slate-300 text-sm sm:text-base mt-2">Ofrecemos calidad, seguimiento en línea y garantía en todas tus operaciones.</p>
             </div>
             <div class="flex flex-wrap justify-center gap-4 shrink-0">
-                <a href="contacto.html" class="bg-white text-slw-900 hover:bg-slw-sky hover:text-slw-950 font-bold px-8 py-4 rounded-full transition">Contáctanos</a>
-                <a href="https://wa.link/kc7lwu" target="_blank" class="bg-emerald-500 hover:bg-emerald-400 text-slw-950 font-bold px-8 py-4 rounded-full transition">WhatsApp</a>
+                <a href="contacto.html" class="bg-white text-slw-900 hover:bg-slw-sky hover:text-slw-950 font-bold px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:scale-105 active:scale-95">Contáctanos</a>
+                <a href="https://wa.link/kc7lwu" target="_blank" class="bg-emerald-500 hover:bg-emerald-400 text-slw-950 font-bold px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:scale-105 active:scale-95">WhatsApp</a>
             </div>
         </div>
     </section>
 
     <!-- FOOTER FULL-WIDTH -->
-    <footer class="w-full bg-slw-950 text-slate-400 pt-16 pb-10 border-t border-white/10">
+    <footer class="w-full bg-slw-950 text-slate-400 pt-16 pb-10 border-t border-white/10 reveal">
         <div class="w-full px-6 sm:px-10 lg:px-16">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-white/10">
                 <div>
-                    <div class="bg-white inline-block px-3.5 py-2 rounded-xl mb-5">
-                        <img src="assets/img/logo.png" alt="SL Worldwide S.A.C." class="h-10 w-auto">
+                    <div class="bg-white inline-block px-3.5 py-2 rounded-xl mb-5 transition transform hover:scale-105 duration-300">
+                        <img src="assets/img/logo-slwgroup.png" alt="SL Worldwide S.A.C." class="h-16 w-auto">
                     </div>
                     <p class="text-xs leading-relaxed text-slate-400 mb-4 max-w-sm">
                         Agencia de carga internacional especializada en transporte marítimo FCL/LCL, carga aérea, agenciamiento de aduanas y logística integral.
                     </p>
-                    <a href="https://linktr.ee/slworlwide" target="_blank" class="font-mono text-xs text-slw-sky hover:underline">linktr.ee/slworlwide ↗</a>
+                    <a href="https://linktr.ee/slworlwide" target="_blank" class="font-mono text-xs text-slw-sky hover:underline">
+                        linktr.ee/slworlwide ↗
+                    </a>
                 </div>
 
                 <div>
                     <h4 class="text-white font-display font-bold text-sm mb-4">Navegación</h4>
                     <ul class="space-y-2.5 text-xs">
-                        <li><a href="index.html" class="hover:text-white transition">Inicio</a></li>
-                        <li><a href="nosotros.html" class="hover:text-white transition">Nosotros</a></li>
-                        <li><a href="servicios.html" class="hover:text-white transition">Nuestros Servicios</a></li>
-                        <li><a href="enlaces.html" class="hover:text-white transition">Enlaces de Interés</a></li>
-                        <li><a href="contacto.html" class="hover:text-white transition">Contacto</a></li>
+                        <li><a href="index.html" class="hover:text-white hover:translate-x-1 transition-all duration-200 inline-block">Inicio</a></li>
+                        <li><a href="nosotros.html" class="hover:text-white hover:translate-x-1 transition-all duration-200 inline-block">Nosotros</a></li>
+                        <li><a href="servicios.html" class="hover:text-white hover:translate-x-1 transition-all duration-200 inline-block">Nuestros Servicios</a></li>
+                        <li><a href="enlaces.html" class="hover:text-white hover:translate-x-1 transition-all duration-200 inline-block">Enlaces de Interés</a></li>
+                        <li><a href="contacto.html" class="hover:text-white hover:translate-x-1 transition-all duration-200 inline-block">Contacto</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h4 class="text-white font-display font-bold text-sm mb-4">Contacto</h4>
                     <ul class="space-y-2.5 text-xs">
-                        <li><a href="tel:012849927" class="hover:text-white transition">Fijo: (01) 284 9927</a></li>
-                        <li><a href="https://wa.me/51915184742" target="_blank" class="hover:text-white transition">Cel: 915 184 742 / 986 940 423</a></li>
-                        <li><a href="mailto:ventas@slwsac.com" class="hover:text-white transition">ventas@slwsac.com</a></li>
+                        <li><a href="tel:012849927" class="hover:text-white transition-colors">Fijo: (01) 284 9927</a></li>
+                        <li><a href="https://wa.me/51982235018" target="_blank" class="hover:text-white transition-colors">Cel: 982 235 018 / 915 184 742</a></li>
+                        <li><a href="mailto:ventas@slwsac.com" class="hover:text-white transition-colors">ventas@slwsac.com</a></li>
                         <li class="text-slate-500 pt-1">Calle Fray Martín de Murúa 150, Of. 606 - 607, San Miguel, Lima</li>
                     </ul>
                 </div>
 
                 <div>
                     <h4 class="text-white font-display font-bold text-sm mb-4">Libro de Reclamaciones</h4>
-                    <p class="text-xs text-slate-500 mb-4">Canal oficial de atención de reclamos y quejas conforme a normativa vigente.</p>
-                    <a href="libro-reclamaciones.html" class="block bg-white/5 hover:bg-white/10 border border-white/10 p-4 rounded-2xl transition">
+                    <p class="text-xs text-slate-500 mb-4">
+                        Canal oficial de atención de reclamos y quejas conforme a normativa vigente.
+                    </p>
+                    <a href="libro-reclamaciones.html" class="block bg-white/5 hover:bg-white/15 border border-white/10 p-4 rounded-2xl transition-all duration-300 hover:-translate-y-1">
                         <span class="block text-white font-bold text-xs">Libro de Reclamaciones Virtual</span>
                         <span class="block font-mono text-[11px] text-slw-sky mt-1">SL Worldwide / SLW Aduanas →</span>
                     </a>
@@ -337,7 +366,7 @@
 
     <!-- BOTÓN FLOTANTE WHATSAPP -->
     <div id="wsp-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
-        <a href="https://wa.link/kc7lwu" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp con SL Worldwide" class="group flex items-center gap-3 bg-[#25D366] hover:bg-[#1EBE5D] text-white pl-4 pr-5 py-3.5 rounded-full shadow-2xl shadow-emerald-600/35 transition-all duration-200 hover:scale-105">
+        <a href="https://wa.link/kc7lwu" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp con SL Worldwide" class="group flex items-center gap-3 bg-[#25D366] hover:bg-[#1EBE5D] text-white pl-4 pr-5 py-3.5 rounded-full shadow-2xl shadow-emerald-600/35 transition-all duration-300 hover:scale-110 active:scale-95 animate-bounce">
             <svg class="w-7 h-7 fill-current shrink-0" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
                 <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
             </svg>
@@ -345,6 +374,7 @@
         </a>
     </div>
 
+    <!-- SCRIPT DE INTERSECTION OBSERVER PARA ANIMACIONES DE ENTRADA -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const mobileToggle = document.getElementById('mobile-toggle');
@@ -354,6 +384,26 @@
                     mobileDrawer.classList.toggle('hidden');
                 });
             }
+
+            // Observer para activar la clase 'reveal' al hacer scroll en toda la página
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.12 // Activa la animación cuando el 12% de la sección es visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); // Se anima una sola vez fluidamente
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach(section => {
+                observer.observe(section);
+            });
         });
     </script>
 </body>
